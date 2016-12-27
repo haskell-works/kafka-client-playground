@@ -1,0 +1,73 @@
+name:                kafka-client-test
+version:             0.1.0.0
+synopsis:            Test application for kafka client + avro
+description:         Please see README.md
+homepage:            https://github.com/alexeyraga/kafka-client-test#readme
+license:             BSD3
+license-file:        LICENSE
+author:              Alexey Raga
+maintainer:          alexey.raga@gmail.com
+copyright:           Alexey Raga
+category:            Services
+build-type:          Simple
+extra-source-files:  README.md
+cabal-version:       >=1.10
+
+library
+  hs-source-dirs:      src
+  exposed-modules:     Lib
+  build-depends:       avro,
+                       base >= 4.7 && < 5,
+                       bytestring,
+                       conduit,
+                       conduit-extra,
+                       containers,
+                       errors,
+                       haskell-kafka-avro,
+                       kafka-client,
+                       mtl,
+                       text,
+                       transformers
+  default-language:    Haskell2010
+
+executable kafka-client-test-exe
+  hs-source-dirs:      app
+  main-is:             Main.hs
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+  build-depends:       avro
+                     , base
+                     , bytestring
+                     , conduit
+                     , conduit-extra
+                     , containers
+                     , errors
+                     , haskell-kafka-avro
+                     , kafka-client
+                     , kafka-client-test
+                     , mtl
+                     , text
+                     , transformers
+  default-language:    Haskell2010
+
+test-suite kafka-client-test-test
+  type:                exitcode-stdio-1.0
+  hs-source-dirs:      test
+  main-is:             Spec.hs
+  build-depends:       avro
+                     , base
+                     , bytestring
+                     , conduit
+                     , conduit-extra
+                     , containers
+                     , errors
+                     , kafka-client
+                     , kafka-client-test
+                     , mtl
+                     , text
+                     , transformers
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+  default-language:    Haskell2010
+
+source-repository head
+  type:     git
+  location: https://github.com/alexeyraga/kafka-client-test
