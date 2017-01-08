@@ -40,12 +40,19 @@ packages:
 - location:
     git: git@github.com:haskell-works/haskell-avro.git
     commit: 510af592fc7d0040e6ac8ae99fd4703ebbba3814
+  extra-dep: true
 - location:
     git: git@github.com:haskell-works/kafka-client.git
     commit: ddfb2db7f6d6e9fd1902dd7b5bbbd46ccd0c6398
+  extra-dep: true
 - location:
     git: git@github.com:haskell-works/kafka-avro-serialiser.git
-    commit: 6c2552914d1c791cf38af8ce624d18a8ad35218b
+    commit: 8e235b94d499040ce74b4a092b463a468152be1c
+  extra-dep: true
+- location:
+    git: git@github.com:haskell-works/kafka-client-conduit.git
+    commit: a04d3d644eabf222151490e2578720564f4e6da5
+  extra-dep: true
 # Dependency packages to be pulled from upstream that are not in the resolver
 # (e.g., acme-missiles-0.3)
 extra-deps: [pure-zlib-0.6]

@@ -1,8 +1,8 @@
-name:                kafka-client-test
+name:                kafka-client-playground
 version:             1.0.0
 synopsis:            Test application for kafka client + avro
 description:         Please see README.md
-homepage:            https://github.com/alexeyraga/kafka-client-test#readme
+homepage:            https://github.com/haskell-works/kafka-client-playground#readme
 license:             BSD3
 license-file:        LICENSE
 author:              Alexey Raga
@@ -25,13 +25,14 @@ library
                        errors,
                        kafka-avro-serialiser,
                        kafka-client,
+                       kafka-client-conduit,
                        mtl,
                        resourcet,
                        text,
                        transformers
   default-language:    Haskell2010
 
-executable kafka-client-test-exe
+executable kafka-client-playground-exe
   hs-source-dirs:      app
   main-is:             Main.hs
   ghc-options:         -threaded -rtsopts -with-rtsopts=-N
@@ -44,14 +45,15 @@ executable kafka-client-test-exe
                      , errors
                      , kafka-avro-serialiser
                      , kafka-client
-                     , kafka-client-test
+                     , kafka-client-conduit
+                     , kafka-client-playground
                      , mtl
                      , resourcet
                      , text
                      , transformers
   default-language:    Haskell2010
 
-test-suite kafka-client-test-test
+test-suite kafka-client-playground-test
   type:                exitcode-stdio-1.0
   hs-source-dirs:      test
   main-is:             Spec.hs
@@ -63,7 +65,8 @@ test-suite kafka-client-test-test
                      , containers
                      , errors
                      , kafka-client
-                     , kafka-client-test
+                     , kafka-client-conduit
+                     , kafka-client-playground
                      , mtl
                      , resourcet
                      , text
@@ -73,4 +76,4 @@ test-suite kafka-client-test-test
 
 source-repository head
   type:     git
-  location: https://github.com/alexeyraga/kafka-client-test
+  location: https://github.com/haskell-works/kafka-client-playground
