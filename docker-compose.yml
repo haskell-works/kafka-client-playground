@@ -5,7 +5,7 @@ services:
     image: confluentinc/cp-zookeeper
     hostname: zookeeper
     ports:
-      - 2182:2181
+      - 2181:2181
     environment:
       SERVICE_NAME: zookeeper
       ZOOKEEPER_CLIENT_PORT: 2181
