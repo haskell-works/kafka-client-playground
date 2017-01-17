@@ -29,7 +29,7 @@ instance FromAvro DedupInfo where
               <*> r .: "submitter_ip"
               <*> r .: "is_duplicate"
               <*> r .: "timestamp"
-  fromAvro v = badValue v "DedupInfo"
+  fromAvro v = badValue v "DedupInfo" 
 
 main :: IO ()
 main = do
@@ -40,7 +40,7 @@ creareKafkaStream :: MonadResource m => Source m (Either KafkaError ReceivedMess
 creareKafkaStream = do
   kc  <- newConsumerConf (ConsumerGroupId "test_group") emptyKafkaProps
   tc  <- newConsumerTopicConf (TopicProps [("auto.offset.reset", "earliest")])
-  kafkaSource kc tc (BrokersString "localhost:9092") (Timeout 30000) [TopicName "test_topic"]
+  kafkaSource kc tc (BrokersString "localhost:9092") (Timeout 30000) [TopicName "dc_attacks"]
 
 decodeMessage :: MonadIO m => SchemaRegistry -> ByteString -> ExceptT AppError m DedupInfo
 decodeMessage sr bs =
